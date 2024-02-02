@@ -6,6 +6,28 @@
 
 <main class="col-md-9">
    <h1>view_category</h1>
+
+   <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Serial Number</th>
+          <th scope="col">Category Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Category Image</th>
+        </tr>
+      </thead>
+      {% for category in categories %}
+      <tbody>
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{category.category}}</td>
+          <td>{{category.description}}</td>
+          <td><img height="200px" width="200px" src="{{category.cover_pic.url}}" alt=""></td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+
 </main>
 
 
