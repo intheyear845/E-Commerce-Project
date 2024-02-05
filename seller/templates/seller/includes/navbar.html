@@ -31,6 +31,13 @@
             <a href="./" class="brand-wrap">
                 <img class="logo" src="{% static './images/logo.png' %}">
             </a> <!-- brand-wrap.// -->
+        </div>
+        <div class="col-10">
+            {% if request.session.seller  %}
+            <p class="text-right">Welcome, {{request.session.seller_name}}</p>
+            {% else  %}
+            <p>Please Login</p>
+            {% endif %}
         </div>            
     
             </div> <!-- row.// -->

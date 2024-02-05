@@ -37,20 +37,17 @@
                     <i class="fa fa-bars"></i> All category 
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Machinery / Mechanical Parts / Tools </a>
-                    <a class="dropdown-item" href="#">Consumer Electronics / Home Appliances </a>
-                    <a class="dropdown-item" href="#">Auto / Transportation</a>
-                    <a class="dropdown-item" href="#">Apparel / Textiles / Timepieces </a>
-                    <a class="dropdown-item" href="#">Home & Garden / Construction / Lights </a>
-                    <a class="dropdown-item" href="#">Beauty & Personal Care / Health </a> 
+                    {% for item in category_list %}
+                            <a class="dropdown-item" href="">{{item.category }} </a>
+                            {% endfor %}
                 </div>
             </div>  <!-- category-wrap.// -->
         </div> <!-- col.// -->
         <a href="{% url 'customer:store' %}" class="btn btn-outline-primary">Store</a>
         <div class="col-lg  col-md-6 col-sm-12 col">
-            <form action="#" class="search">
+            <form  class="search" method="GET" action="{% url 'customer:store' %}">
                 <div class="input-group w-100">
-                    <input type="text" class="form-control" style="width:60%;" placeholder="Search">
+                    <input type="text" name="search_text" class="form-control" style="width:50%;" placeholder="search by product name or category">
                     
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="submit">

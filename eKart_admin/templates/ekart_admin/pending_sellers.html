@@ -6,6 +6,35 @@
 
 <main class="col-md-9">
    <h1>Pending_sellers</h1>
+
+   <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Company Name</th>
+          <th scope="col">Image</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      {% for seller in pending_sellers %}
+      <tbody>
+        <tr>
+          <th scope="row">{{seller.first_name}}</th>
+          <td>{{seller.last_name}}</td>
+          <td>{{seller.email}}</td>
+          <td>{{seller.comapany_name}}</td>
+          <td><img height="100px" width="100px" src="{{seller.pic.url}}" alt=""></td>
+          <td>
+            <a class="btn btn-danger" href="">Reject</a>
+            <a class="btn btn-success" href="{% url 'ekart_admin:approve_seller' seller.id %}">Approve</a>
+          </td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+
 </main>
 
 
